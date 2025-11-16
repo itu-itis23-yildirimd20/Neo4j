@@ -32,7 +32,7 @@ This guide is designed to be replicated by anyone in under 10 minutes. **No loca
 * From the dropdown menu, select **"Query"**.
 * Then let's copy the following commands to the browser and load the dataset.
 ```cypher
- CREATE CONSTRAINT movie_title IF NOT EXISTS FOR (m:Movie) REQUIRE m.title IS UNIQUE;
+CREATE CONSTRAINT movie_title IF NOT EXISTS FOR (m:Movie) REQUIRE m.title IS UNIQUE;
 CREATE CONSTRAINT person_name IF NOT EXISTS FOR (p:Person) REQUIRE p.name IS UNIQUE;
 
 MERGE (TheMatrix:Movie {title:'The Matrix'}) ON CREATE SET TheMatrix.released=1999, TheMatrix.tagline='Welcome to the Real World'
