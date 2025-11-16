@@ -748,13 +748,6 @@ MATCH path = shortestPath(
 )
 RETURN path
 ```
-#### Query 5: Find co-actors
 
-Finds Tom Hanks' supporting actors and returns the full graph showing Tom Hanks, the movies they shared, those supporting actors, and supporting actors' details.
-```cypher
-MATCH (p:Person {name: 'Tom Hanks'})-[:ACTED_IN]->(m:Movie)<-[r:ACTED_IN]-(coactor:Person)
-WHERE p <> coactor
-RETURN p, m, coactor,r
-```
 
 
