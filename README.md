@@ -33,17 +33,17 @@ This guide is designed to be replicated by anyone in under 10 minutes. **No loca
 * Then let's copy the following commands to the browser and load the dataset.
 * Before adding data, we set up Constraints. This ensures we don't accidentally create two movies with the same title or two people with the same name.
 
-CONSTRAINT ... IS UNIQUE: Guarantees that the property (e.g., title) is unique across all nodes with that label.
+  CONSTRAINT ... IS UNIQUE: Guarantees that the property (e.g., title) is unique across all nodes with that label.
 
-IF NOT EXISTS: Prevents an error if you run this script more than once.
-*In SQL, you INSERT data. In Neo4j, we prefer MERGE.
+  IF NOT EXISTS: Prevents an error if you run this script more than once.
+* In SQL, you INSERT data. In Neo4j, we prefer MERGE.
 
-MERGE (Match or Create): It checks if the data already exists. If it exists, it matches it. If not, it creates it. This prevents duplicates.
+  MERGE (Match or Create): It checks if the data already exists. If it exists, it matches it. If not, it creates it. This prevents duplicates.
 
-ON CREATE SET: This part runs only if a new node is created. It's perfect for setting static properties like birth years or release dates.
-*The Arrow ->: Defines the direction of the relationship.
+  ON CREATE SET: This part runs only if a new node is created. It's perfect for setting static properties like birth years or release dates.
+* The Arrow ->: Defines the direction of the relationship.
 
-Properties in Relationships: Unlike SQL, relationships in a graph can store data! Here, ACTED_IN stores the roles property (e.g., Keanu played 'Neo').
+  Properties in Relationships: Unlike SQL, relationships in a graph can store data! Here, ACTED_IN stores the roles property (e.g., Keanu played 'Neo').
 ```cypher
 CREATE CONSTRAINT movie_title IF NOT EXISTS FOR (m:Movie) REQUIRE m.title IS UNIQUE;
 CREATE CONSTRAINT person_name IF NOT EXISTS FOR (p:Person) REQUIRE p.name IS UNIQUE;
