@@ -41,8 +41,6 @@ This guide is designed to be replicated by anyone in under 10 minutes. **No loca
 
   ON CREATE SET: This part runs only if a new node is created. It's perfect for setting static properties like birth years or release dates.
 * The Arrow ->: Defines the direction of the relationship.
-
-  Properties in Relationships: Unlike SQL, relationships in a graph can store data! Here, ACTED_IN stores the roles property (e.g., Keanu played 'Neo').
 * Then let's copy the following commands to the browser and load the dataset.
 ```cypher
 CREATE CONSTRAINT movie_title IF NOT EXISTS FOR (m:Movie) REQUIRE m.title IS UNIQUE;
