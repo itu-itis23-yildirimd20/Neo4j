@@ -30,7 +30,6 @@ This guide is designed to be replicated by anyone in under 10 minutes. **No loca
 ### 3. Load the Movie Dataset
 * Once your instance status is **"Running"**, click the **"Connect"** button on the right.
 * From the dropdown menu, select **"Query"**.
-* Then let's copy the following commands to the browser and load the dataset.
 * Before adding data, we set up Constraints. This ensures we don't accidentally create two movies with the same title or two people with the same name.
 
   CONSTRAINT ... IS UNIQUE: Guarantees that the property (e.g., title) is unique across all nodes with that label.
@@ -44,6 +43,7 @@ This guide is designed to be replicated by anyone in under 10 minutes. **No loca
 * The Arrow ->: Defines the direction of the relationship.
 
   Properties in Relationships: Unlike SQL, relationships in a graph can store data! Here, ACTED_IN stores the roles property (e.g., Keanu played 'Neo').
+* Then let's copy the following commands to the browser and load the dataset.
 ```cypher
 CREATE CONSTRAINT movie_title IF NOT EXISTS FOR (m:Movie) REQUIRE m.title IS UNIQUE;
 CREATE CONSTRAINT person_name IF NOT EXISTS FOR (p:Person) REQUIRE p.name IS UNIQUE;
